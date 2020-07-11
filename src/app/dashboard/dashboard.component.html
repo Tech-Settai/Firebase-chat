@@ -1,0 +1,30 @@
+Hi, {{info.name}}
+<br>
+<button (click)="auth.signOut()" class="logout">
+    Log Out
+</button>
+<br><br>
+<div *ngFor="let chat of messageHistry;" class="chatbox__body__message chatbox__body__message--left">
+    <div class="chatbox_timing">
+    </div>
+    <img src="{{chat.dp}}" alt="Picture">
+    <div class="clearfix"></div>
+    <div class="ul_section_full">
+        <ul class="ul_msg">
+            <li><strong>{{chat.user}}</strong></li>
+            <li>{{chat.message}} </li>
+        </ul>
+        <div class="clearfix"></div>
+        <ul class="ul_msg2">
+
+        </ul>
+    </div>
+
+</div>
+<div class="form-chat">
+    <input type="text" [(ngModel)]="message"  style="width: 85%;"/>
+    <button (click)="socketService.sendMessage(message)" style="width: 10%;">send</button>
+</div>
+
+
+
